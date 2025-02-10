@@ -20,8 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             NavigationwithMVVMTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    PengelolaHalaman(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }

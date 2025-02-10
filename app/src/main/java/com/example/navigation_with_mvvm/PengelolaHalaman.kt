@@ -15,10 +15,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.navigation.model.DataJK
-import com.example.navigation.ui.view.DetailMahasiswaView
-import com.example.navigation.ui.view.FormMahasiswaView
-import com.example.navigation.ui.viewmodel.MahasiswaViewModel
 import com.example.navigation_with_mvvm.model.JenisKelamin
 import com.example.navigation_with_mvvm.view.DetailMahasiswa
 import com.example.navigation_with_mvvm.view.FormMahasiswa
@@ -39,7 +35,8 @@ fun PengelolaHalaman(
         val uiState by viewModel.uiState.collectAsState()
         NavHost(
             modifier = modifier.padding(isipadding),
-            navController = navHostController, startDestination = Halaman.Formulir.name
+            navController = navHostController,
+            startDestination = Halaman.Formulir.name
         ){
             composable(route = Halaman.Formulir.name){
                 val konteks = LocalContext.current
@@ -55,6 +52,7 @@ fun PengelolaHalaman(
             }
             composable(route = Halaman.Detail.name) {
                 DetailMahasiswa(
+                    modifier = Modifier,
                     uiStateMahasiswa = uiState,
                     onBackButton = {
                         navHostController.popBackStack()
@@ -64,3 +62,4 @@ fun PengelolaHalaman(
         }
     }
 }
+
