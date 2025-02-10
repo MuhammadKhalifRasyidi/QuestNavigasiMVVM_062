@@ -36,7 +36,7 @@ fun FormMahasiswa(
     val dataMahasiswa: MutableList<String> = mutableListOf(nama, selectedGender, alamat, nim)
 
     Column(
-        Modifier
+        modifier
             .fillMaxSize()
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -111,7 +111,7 @@ fun FormMahasiswa(
 
         Button(onClick = { onSubmitClicked(dataMahasiswa) })
         {
-            Text("Simpan")
+            Text("Save")
         }
     }
 }
