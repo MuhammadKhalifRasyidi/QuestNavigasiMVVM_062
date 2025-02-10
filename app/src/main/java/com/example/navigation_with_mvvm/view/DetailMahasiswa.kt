@@ -15,7 +15,39 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.navigation_with_mvvm.model.DataMahasiswa
 
+@Composable
+fun DetailMahasiswa(
+    modifier: Modifier,
+    uiStateMahasiswa: DataMahasiswa,
+    onBackButton: () -> Unit
+) {
+    val listDataMhs = listOf(
+        Pair("Nama", uiStateMahasiswa.nama),
+        Pair("Gender", uiStateMahasiswa.gender),
+        Pair("Alamat", uiStateMahasiswa.alamat),
+        Pair("NIM", uiStateMahasiswa.nim)
+    )
+    Column(
+        modifier = modifier
+            .padding(start = 8.dp)
+    ) {
 
+        Button(
+            onClick = { onBackButton() },
+        ) {
+            Text("Back")
+        }
+
+        Column {
+            listDataMhs.forEach { item ->
+                CardSection(
+                    judulParam = item.first,
+                    isiParam = item.second
+                )
+            }
+        }
+    }
+}
 
 @Composable
 fun CardSection(judulParam: String, isiParam: String) {
